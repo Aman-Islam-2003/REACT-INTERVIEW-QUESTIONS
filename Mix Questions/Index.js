@@ -78,6 +78,7 @@ console.log(a)
 //flattening the array
 let arrFlattening =[[1,2], [3,4], [5,6], [7, [8,9], 10]];
 console.log(arrFlattening.flat(1))
+console.log([].concat(...arrFlattening))
 
 function customFlattening(arr, depth = 1) {
   let result = [];
