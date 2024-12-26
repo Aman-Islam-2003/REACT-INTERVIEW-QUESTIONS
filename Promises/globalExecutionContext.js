@@ -6,4 +6,4 @@
 //initial value is undefined
 
 //Code phase executes line by line
-//every ftn in js has its own local context
+//every ftn in js has its own local conte  xt
