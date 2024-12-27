@@ -11,3 +11,5 @@ console.log(sayHello.bind(obj)(24));
 //output based
 
 //pure component -> unless the props or state passed to the component changes, the component will not re-render
+
+//pure component -> shallow comparison
