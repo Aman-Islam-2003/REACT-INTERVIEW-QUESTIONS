@@ -43,3 +43,36 @@ obj.display.call(obj1);
 
 // if we use arrow function instead, it will return nothing as they point to the window object or global object and inside of that we have no variable knows as name.
   
+
+//Q3 Infinite currying  
+
+function add(a){
+    return function(b){
+        if (b){
+            return add(a+b);
+        }
+        return a;
+    }
+}
+ console.log(add(6)(4)(2)())
+
+ //Q4 -> Implementing the logic
+
+ const calc = {
+    result: 0,
+    add: function(a){
+        this.result += a;
+        return this;
+    },
+    subtract: function(a){
+        this.result -= a;
+        return this;
+    },
+    multiply: function(a){
+        this.result *= a;
+        return this;
+    }
+ }
+
+ const result = calc.add(5).multiply(5).add(10).subtract(2);
+ console.log(result.result)
