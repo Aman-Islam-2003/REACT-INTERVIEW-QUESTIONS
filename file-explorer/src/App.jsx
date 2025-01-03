@@ -26,7 +26,7 @@ function App() {
   }
   return (
     <>
-      {
+      {/* {
         apiData.length > 0 && (
           <div className='grid grid-cols-4 gap-4 m-6'>
             {apiData.slice(page * 10 - 10, page * 10).map((product) => (
@@ -50,8 +50,8 @@ function App() {
                   <span className={`${page<(apiData.length/10)?'': 'invisible' } cursor-pointer`} onClick={()=>setPage(page+1)}>▶</span>
                 </div>
               )
-            }
-      {/* <FileExplorer explorerData={explorerData}/> */}
+            } */}
+      <FileExplorer explorerData={explorerData}/>
     </>
   )
 }
