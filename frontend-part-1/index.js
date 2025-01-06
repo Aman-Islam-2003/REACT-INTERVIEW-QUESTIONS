@@ -76,3 +76,12 @@ function add(a){
 
  const result = calc.add(5).multiply(5).add(10).subtract(2);
  console.log(result.result)
+
+ //HOC // HIGHER ORDER FUNCTION
+ // A function that returns a ftn and take other ftns as arguments
+ setTimeout(()=>{
+
+ },1000)
+//  similarly Array.filter takes a function
+const mySalaries = [50,40,100,600];
+mySalaries.filter(salary).filter().map()
