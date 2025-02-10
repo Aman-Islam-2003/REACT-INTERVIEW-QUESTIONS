@@ -5,15 +5,25 @@ function App() {
   const [recipes, setRecipes] = useState([]);
   const [input, setInput] = useState("");
   const [showResults, setShowResults] = useState(false);
+  const [cache, setCache] = useState({});
 
   const fetchData = async () => {
+    if(cache[input]){
+      setRecipes(cache[input]);
+      return ;
+    }
+    console.log("api call");
     const data = await fetch(`https://dummyjson.com/recipes/search?q=${input}`);
     const result = await data.json();
     setRecipes(result?.recipes);
+     setCache(prev=>({...prev, [input]: result?.recipes}))
   };
 
   useEffect(() => {
-    fetchData();
+    const timer = setTimeout(fetchData, 300);
+    return () => {
+      clearTimeout(timer);
+    };
   }, [input]);
 
   return (
@@ -28,7 +38,8 @@ function App() {
           className="outline-none"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          onFocus={()=>setShowResults(true)}
+          onFocus={() => setShowResults(true)}
+          onBlur={() => setShowResults(false)}
         />
       </div>
       {showResults && (
